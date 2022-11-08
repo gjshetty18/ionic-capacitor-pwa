@@ -11,14 +11,14 @@ export class AppComponent {
 
 constructor( public plt: Platform) {
 
-//  this.plt.ready().then((readySource) => {
+ this.plt.ready().then((readySource) => {
 
-//    console.log('Platform ready from', readySource);
+   console.log('Platform ready from', readySource);
 
-//    this.bluetoothle.initialize().subscribe(ble => {
-//      console.log('ble', ble.status);
-//    });
+  //  this.bluetoothle.initialize().subscribe(ble => {
+  //    console.log('ble', ble.status);
+  //  });
 
-//   });
+  });
 }
 }

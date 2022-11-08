@@ -3,7 +3,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Geolocation, Position } from '@capacitor/geolocation';
 import { Share } from '@capacitor/share';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +19,17 @@ export class HomePage {
  pairedDevices: any;
  gettingDevices: boolean;
 
-  constructor(private bluetoothSerial: BluetoothSerial, private alertController: AlertController) {
+  constructor(private bluetoothSerial: BluetoothSerial, private alertController: AlertController,public plt: Platform) {
     bluetoothSerial.enable();
+    this.plt.ready().then((readySource) => {
+
+      console.log('Platform ready from', readySource);
+   
+     //  this.bluetoothle.initialize().subscribe(ble => {
+     //    console.log('ble', ble.status);
+     //  });
+   
+     });
   }
 
   async takePicture() {
